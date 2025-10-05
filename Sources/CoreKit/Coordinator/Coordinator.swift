@@ -19,6 +19,7 @@ public extension Coordinator {
 }
 
 // MARK: - CoordinatorFinishDelegate
+@MainActor
 public protocol CoordinatorFinishDelegate: AnyObject {
     func didFinishChild(_ coordinator: Coordinator)
 }
