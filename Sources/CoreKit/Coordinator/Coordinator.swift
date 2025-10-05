@@ -4,7 +4,8 @@
 import Foundation
 
 // MARK: - Coordinator
-public protocol Coordinator: CoordinatorFinishDelegate {
+@MainActor
+public protocol Coordinator: AnyObject {
     var finishDelegate: CoordinatorFinishDelegate? { get set }
 
     func start()
@@ -23,7 +24,8 @@ public protocol CoordinatorFinishDelegate: AnyObject {
 }
 
 // MARK: - CompositionCoordinator
-public protocol CompositionCoordinator: Coordinator {
+@MainActor
+public protocol CompositionCoordinator: Coordinator, CoordinatorFinishDelegate {
     var children: [Coordinator] { get set }
 }
 
@@ -43,7 +45,8 @@ public extension CompositionCoordinator {
 }
 
 // MARK: - FlowCoordinator
-public protocol FlowCoordinator: Coordinator {
+@MainActor
+public protocol FlowCoordinator: Coordinator, CoordinatorFinishDelegate {
     var child: Coordinator? { get set }
 }
 
