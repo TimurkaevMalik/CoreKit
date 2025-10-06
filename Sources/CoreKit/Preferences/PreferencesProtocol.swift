@@ -1,4 +1,12 @@
-#warning("Move to CoreKit")
+//
+//  PreferencesProtocol.swift
+//  CoreKit
+//
+//  Created by Malik Timurkaev on 06.10.2025.
+//
+
+import Foundation
+
 protocol PreferencesProtocol {
     func set(_ value: Any?, forKey key: String)
     func retrieve<T: Codable>(_ type: T.Type, forKey key: String) -> T?
