@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol PreferencesProtocol {
+public protocol PreferencesProtocol {
     func set(_ value: Any?, forKey key: String)
     func retrieve<T: Codable>(_ type: T.Type, forKey key: String) -> T?
     func removeObject(forKey key: String)
@@ -15,7 +15,7 @@ protocol PreferencesProtocol {
 
 extension UserDefaults: PreferencesProtocol {
     
-    func retrieve<T: Codable>(
+    public func retrieve<T: Codable>(
         _ type: T.Type = T.self,
         forKey key: String
     ) -> T? {
