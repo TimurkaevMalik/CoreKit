@@ -3,13 +3,17 @@
 
 import PackageDescription
 
+let kitName = "CoreKit"
+let kitNameDynamic = kitName + "-Dynamic"
+
 let package = Package(
-    name: "CoreKit",
+    name: kitName,
     platforms: [.iOS(.v13)],
     products: [
-        .library(name: "CoreKit", type: .dynamic ,  targets: ["CoreKit"]),
+        .library(name: kitName, targets: [kitName]),
+        .library(name: kitNameDynamic, type: .dynamic ,  targets: [kitName])
     ],
     targets: [
-        .target(name: "CoreKit")
+        .target(name: kitName)
     ]
 )
